@@ -1,0 +1,275 @@
+/* --- configuracion basica para toda la pagina --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*hace que el padding no afecte el ancho total*/
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f7f6;
+  color: #333;
+}
+
+/*estilo para la barra superior que contiene el logo y los enlaces a cada sección*/
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: sticky; /*hace que el header permanezca siempre arriba al hacer scroll*/
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+.logo span {
+  margin-right: 0.5rem;
+}
+
+/*configura el tamaño del logo y que no se distorsione*/
+.logo img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #1b5e20;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+
+/*diseño para que cuando el cursor pase por encima cambie de color */
+nav a:hover {
+  color: #4caf50;
+  border-bottom-color: #4caf50;
+}
+
+/*oculta TODOS los <main> por defecto*/
+main {
+  display: none; 
+}
+
+/*muestra solo el <main> que tenga la clase 'active'*/
+/*la cual es la regla para las páginas de contenido (Tala, Fauna, Caza)*/
+main.active {
+  display: flex;     
+  flex-wrap: wrap;   
+  gap: 1.5rem; 
+  padding: 2.5rem 2.5rem;
+  min-height: auto; /*define la altura automáticamente*/
+  align-items: start;/*alinea las columnas*/
+}
+
+/*muestra la pantalla principal de inicio con 'active' para que sea siempre la primera en ser mostrada*/
+main#inicio.active {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem; 
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+/*cambia el color del fondo para la seccion que esté 'active'*/
+main#inicio.active {
+  background-color: #d3ffd7;
+}
+main#tala.active ,
+main#caza.active {
+  background-color: #a1cba1;
+}
+main#fauna.active {
+  background-color: #d3ffd7;
+}
+
+/*estilos para la pantalla de inicio, logo en el centro*/
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome-logo {
+  width: 150px; 
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.welcome-container h1 {
+  font-size: 2.5rem;
+  color: #2e7d32;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-container p {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0;
+}
+
+/*estilos para las tarjetas de resumen*/
+.summary-container {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px; 
+}
+
+.summary-card {
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 300px; 
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.summary-card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.summary-card h3 {
+  font-size: 1.5rem;
+  color: #1b5e20;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.summary-card p {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+
+/*darle la estructura a las paginas con el contenido*/
+/*columnas de texto e imagenes*/
+.texto {
+  max-width: 650px;
+  flex-basis: 350px; 
+  flex-grow: 1;     
+  order: 1;/*significa que se quedará a la izquierda*/    
+}
+/*estilos de los textos*/
+/*titulos y párrafos*/
+h2 {
+  font-size: 2.8rem;
+  color: #2e7d32;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #66bb6a;
+}
+
+h3 {
+  font-size: 1.8rem;
+  color: #1b5e20;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+/*estilo para los parrafos*/
+p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+ul {
+  margin-left: 1.5rem;/*hace la separación para dividir cada punto*/
+}
+
+/*ajusta las imagenes*/
+.imagen {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: start; 
+  gap: 1rem; 
+  flex-basis: 350px;  
+  flex-grow: 1;      
+  order: 2;          
+}
+
+.imagen p {
+  font-style: italic;/*la fuente que se le dió al contexto que aparece abajo de las imagenes*/
+  color: #555;
+  text-align: center;
+  font-size: 0.95rem;
+  max-width: 450px;
+  line-height: 1.5;
+}
+/*ajustes para las imagenes grandes*/
+main:not(#inicio) img {
+  max-width: 100%;
+  max-height: 350px; /*se define el tamaño de la imagen*/
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  object-fit: cover;/*evita que la imagen se distorsione*/
+}
+
+/*ajuste para los conejitos*/
+img[alt="Conejo afectado"]
+img[alt="Animal afectado por tala"]
+img[alt="Animal afectado por caza ilegal"]
+
+.texto .imagen {
+  margin: 1.5rem;
+}
+
+/*EXCEPCIONES*/
+/*para la parte de fauna*/
+main#fauna .texto {
+  order: 2; /*mueve el texto a la derecha*/
+}
+main#fauna .imagen {
+  order: 1; /*mueve las imágenes a la izquierda*/
+}
+/* Pone las dos imágenes de la columna de texto en horizontal */
+main#fauna .imagen {
+  flex-direction: row; /*cambia la dirección a horizontal*/
+  flex-wrap: wrap; /*permite que se apilen si no caben*/
+  justify-content: center; 
+  gap: 0.5rem; /*el espacio que habrá entre ellas*/
+}
+
+/*ajusta el tamaño de esas dos imágenes para que quepan*/
+main#fauna .texto .imagen img {
+  max-width: 48%; /*cada imagen ocupa un poco menos de la mitad*/
+  height: auto;
+  max-height: 250px; /*le ponemos un límite de altura*/
+}
+/*para la parte de caza*/
+/*considerando el tamaño de las imagenes de esa sección, se reduce el tamaño de las imágenes*/
+main#caza .imagen img {
+  max-height: 220px;
+}
