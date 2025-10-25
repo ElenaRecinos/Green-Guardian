@@ -1,12 +1,16 @@
+/* Importar fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&family=Montserrat:wght@800&display=swap');
+
 /* --- configuracion basica para toda la pagina --- */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /*hace que el padding no afecte el ancho total*/
+  box-sizing: border-box;
+  /*hace que el padding no afecte el ancho total*/
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   background-color: #f4f7f6;
   color: #333;
@@ -20,10 +24,12 @@ header {
   padding: 1rem 2.5rem;
   background-color: #ffffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: sticky; /*hace que el header permanezca siempre arriba al hacer scroll*/
+  position: sticky;
+  /*hace que el header permanezca siempre arriba al hacer scroll*/
   top: 0;
   z-index: 1000;
   width: 100%;
+  transition: transform 0.3s ease;
 }
 
 .logo {
@@ -43,6 +49,11 @@ header {
   width: 80px;
   height: 80px;
   object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+  transform: rotate(10deg) scale(1.1);
 }
 
 nav a {
@@ -53,30 +64,47 @@ nav a {
   font-size: 1.1rem;
   padding-bottom: 5px;
   border-bottom: 2px solid transparent;
-  transition: color 0.3s ease, border-color 0.3s ease;
+  transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
   cursor: pointer;
+  display: inline-block;
 }
 
 /*diseño para que cuando el cursor pase por encima cambie de color */
 nav a:hover {
   color: #4caf50;
   border-bottom-color: #4caf50;
+  transform: translateY(-2px);
 }
 
 /*oculta TODOS los <main> por defecto*/
 main {
-  display: none; 
+  display: none;
 }
 
 /*muestra solo el <main> que tenga la clase 'active'*/
 /*la cual es la regla para las páginas de contenido (Tala, Fauna, Caza)*/
 main.active {
-  display: flex;     
-  flex-wrap: wrap;   
-  gap: 1.5rem; 
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
   padding: 2.5rem 2.5rem;
-  min-height: auto; /*define la altura automáticamente*/
-  align-items: start;/*alinea las columnas*/
+  min-height: auto;
+  /*define la altura automáticamente*/
+  align-items: start;
+  /*alinea las columnas*/
+  animation: fadeInContent 0.5s ease;
+}
+
+@keyframes fadeInContent {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /*muestra la pantalla principal de inicio con 'active' para que sea siempre la primera en ser mostrada*/
@@ -85,7 +113,7 @@ main#inicio.active {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 3rem; 
+  gap: 3rem;
   padding: 4rem 1.5rem;
   text-align: center;
 }
@@ -94,10 +122,12 @@ main#inicio.active {
 main#inicio.active {
   background-color: #d3ffd7;
 }
-main#tala.active ,
+
+main#tala.active,
 main#caza.active {
   background-color: #a1cba1;
 }
+
 main#fauna.active {
   background-color: #d3ffd7;
 }
@@ -110,16 +140,45 @@ main#fauna.active {
 }
 
 .welcome-logo {
-  width: 150px; 
+  width: 150px;
   height: 150px;
   object-fit: contain;
   margin-bottom: 1rem;
+  animation: floatLogo 3s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
 }
 
 .welcome-container h1 {
-  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
   color: #2e7d32;
   margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeInDown 1s ease;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .welcome-container p {
@@ -127,16 +186,28 @@ main#fauna.active {
   color: #555;
   max-width: 600px;
   margin: 0;
+  font-style: italic;
+  animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /*estilos para las tarjetas de resumen*/
 .summary-container {
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
   width: 100%;
-  max-width: 1000px; 
+  max-width: 1000px;
 }
 
 .summary-card {
@@ -144,18 +215,41 @@ main#fauna.active {
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 2rem;
-  width: 300px; 
+  width: 300px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   text-decoration: none;
   color: inherit;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
   cursor: pointer;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slideUp 0.6s ease forwards;
+}
+
+.summary-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.summary-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.summary-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .summary-card:hover {
-  transform: translateY(-5px); 
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  background-color: #f0f9f0;
 }
 
 .summary-card h3 {
@@ -163,6 +257,7 @@ main#fauna.active {
   color: #1b5e20;
   margin-top: 0;
   margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 .summary-card p {
@@ -175,18 +270,41 @@ main#fauna.active {
 /*columnas de texto e imagenes*/
 .texto {
   max-width: 650px;
-  flex-basis: 350px; 
-  flex-grow: 1;     
-  order: 1;/*significa que se quedará a la izquierda*/    
+  flex-basis: 350px;
+  flex-grow: 1;
+  order: 1;
+  /*significa que se quedará a la izquierda*/
 }
+
 /*estilos de los textos*/
 /*titulos y párrafos*/
+h1 {
+  font-family: 'Playfair Display', serif;
+}
+
 h2 {
+  font-family: 'Montserrat', sans-serif;
   font-size: 2.8rem;
+  font-weight: 800;
   color: #2e7d32;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 3px solid #66bb6a;
+  animation: slideInLeft 0.6s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 h3 {
@@ -194,7 +312,9 @@ h3 {
   color: #1b5e20;
   margin-top: 2rem;
   margin-bottom: 1rem;
+  animation: slideInLeft 0.6s ease 0.2s both;
 }
+
 /*estilo para los parrafos*/
 p {
   font-size: 1.1rem;
@@ -203,73 +323,360 @@ p {
 }
 
 ul {
-  margin-left: 1.5rem;/*hace la separación para dividir cada punto*/
+  margin-left: 1.5rem;
+  /*hace la separación para dividir cada punto*/
 }
 
 /*ajusta las imagenes*/
 .imagen {
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  justify-content: start; 
-  gap: 1rem; 
-  flex-basis: 350px;  
-  flex-grow: 1;      
-  order: 2;          
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+  flex-basis: 350px;
+  flex-grow: 1;
+  order: 2;
+  animation: slideInRight 0.6s ease 0.3s both;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .imagen p {
-  font-style: italic;/*la fuente que se le dió al contexto que aparece abajo de las imagenes*/
+  font-style: italic;
+  /*la fuente que se le dió al contexto que aparece abajo de las imagenes*/
   color: #555;
   text-align: center;
   font-size: 0.95rem;
   max-width: 450px;
   line-height: 1.5;
 }
-/*ajustes para las imagenes grandes*/
+
+/*ajustes para las imagenes grandes con ANIMACIONES*/
 main:not(#inicio) img {
   max-width: 100%;
-  max-height: 350px; /*se define el tamaño de la imagen*/
+  max-height: 350px;
+  /*se define el tamaño de la imagen*/
   width: auto;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  object-fit: cover;/*evita que la imagen se distorsione*/
+  object-fit: cover;
+  /*evita que la imagen se distorsione*/
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Efecto hover - zoom y brillo */
+main:not(#inicio) img:hover {
+  transform: scale(1.08) rotate(1deg);
+  box-shadow: 0 12px 28px rgba(76, 175, 80, 0.3);
+  filter: brightness(1.1);
+}
+
+/* Animación al hacer clic */
+main:not(#inicio) img:active {
+  transform: scale(0.95);
+  filter: brightness(0.9);
+}
+
+/* Animación de pulso verde al hacer clic */
+@keyframes imagePulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  50% {
+    transform: scale(1.12);
+    box-shadow: 0 0 35px rgba(76, 175, 80, 0.7);
+    filter: brightness(1.15);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.image-clicked {
+  animation: imagePulse 0.6s ease !important;
+}
+
+/* Animación de shake sutil */
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0) scale(1.08) rotate(1deg);
+  }
+
+  25% {
+    transform: translateX(-3px) scale(1.08) rotate(-1deg);
+  }
+
+  50% {
+    transform: translateX(3px) scale(1.08) rotate(1deg);
+  }
+
+  75% {
+    transform: translateX(-3px) scale(1.08) rotate(-1deg);
+  }
+}
+
+/* Lightbox para ver imágenes en grande */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.92);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 15px;
+  box-shadow: 0 0 50px rgba(76, 175, 80, 0.4);
+  animation: zoomIn 0.4s ease;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 45px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close:hover {
+  color: #4caf50;
+  transform: rotate(90deg) scale(1.2);
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /*ajuste para los conejitos*/
-img[alt="Conejo afectado"]
-img[alt="Animal afectado por tala"]
-img[alt="Animal afectado por caza ilegal"]
+img[alt="Conejo afectado"],
+img[alt="Animal afectado por tala"],
+img[alt="Animal afectado por caza ilegal"] {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
 
 .texto .imagen {
   margin: 1.5rem;
 }
 
+/* ===== NUEVOS ESTILOS PARA ESTRUCTURA MEJORADA ===== */
+
+/* Contenedor principal de cada sección */
+.contenido-seccion {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Imagen destacada (conejos grandes) */
+.imagen-destacada {
+  text-align: center;
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #4aec50 0%, #a6ff8f 100%);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+}
+
+.imagen-destacada figure {
+  margin: 0;
+}
+
+.imagen-destacada img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.imagen-destacada img:hover {
+  transform: scale(1.05);
+}
+
+/* Galería de imágenes general */
+.galeria-imagenes {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.galeria-imagenes figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.galeria-imagenes figure:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.galeria-imagenes img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Galería de dos columnas - imágenes lado a lado */
+.galeria-dos-columnas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin: 30px auto;
+  max-width: 900px;
+}
+
+.galeria-dos-columnas figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.galeria-dos-columnas figure:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.galeria-dos-columnas img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.galeria-dos-columnas figure:hover img {
+  transform: scale(1.1);
+}
+
+/* Caja de contexto */
+.contexto-box {
+  background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%);
+  padding: 30px;
+  border-radius: 15px;
+  margin: 30px auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  max-width: 900px;
+}
+
+.contexto-box h4 {
+  color: white;
+  font-size: 1.6rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.contexto-box p {
+  color: white;
+  font-size: 1.1em;
+  margin-bottom: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  line-height: 1.8;
+}
+
 /*EXCEPCIONES*/
 /*para la parte de fauna*/
 main#fauna .texto {
-  order: 2; /*mueve el texto a la derecha*/
-}
-main#fauna .imagen {
-  order: 1; /*mueve las imágenes a la izquierda*/
-}
-/* Pone las dos imágenes de la columna de texto en horizontal */
-main#fauna .imagen {
-  flex-direction: row; /*cambia la dirección a horizontal*/
-  flex-wrap: wrap; /*permite que se apilen si no caben*/
-  justify-content: center; 
-  gap: 0.5rem; /*el espacio que habrá entre ellas*/
+  order: 2;
+  /*mueve el texto a la derecha*/
 }
 
-/*ajusta el tamaño de esas dos imágenes para que quepan*/
-main#fauna .texto .imagen img {
-  max-width: 48%; /*cada imagen ocupa un poco menos de la mitad*/
-  height: auto;
-  max-height: 250px; /*le ponemos un límite de altura*/
+main#fauna .imagen {
+  order: 1;
+  /*mueve las imágenes a la izquierda*/
 }
+
 /*para la parte de caza*/
 /*considerando el tamaño de las imagenes de esa sección, se reduce el tamaño de las imágenes*/
 main#caza .imagen img {
   max-height: 220px;
+}
+
+/* Responsive - en móviles una debajo de otra */
+@media (max-width: 768px) {
+  .galeria-dos-columnas {
+    grid-template-columns: 1fr;
+  }
+
+  .imagen-destacada {
+    padding: 20px;
+  }
+
+  .imagen-destacada img {
+    max-width: 100%;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .contexto-box {
+    padding: 20px;
+  }
 }

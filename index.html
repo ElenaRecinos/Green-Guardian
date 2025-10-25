@@ -14,8 +14,9 @@
   <header>
     <!-- Logo del sitio -->
     <div class="logo">
-      <span>BIENVENIDO A GREEN</span> GUARDIAN
-      <img src="png/LogoGreenGuardian.png" alt="Logo de Green Guardian" class="logo" width="350" height="350">
+      <img src="png/LogoGreenGuardian.png" alt="Logo de Green Guardian" class="logo">
+
+      <span>GREEN</span> GUARDIAN
     </div>
 
     <!-- Menú de navegación -->
@@ -26,29 +27,28 @@
       <a href="#caza">Caza ilegal</a>
     </nav>
   </header>
-  <!-- se agregó una nueva sección llamada inicio-->
 
+  <!-- PANTALLA DE INICIO -->
   <main id="inicio" class="active">
-    
+
     <div class="welcome-container">
       <img src="png/LogoGreenGuardian.png" alt="Logo de Green Guardian" class="welcome-logo">
       <h1>BIENVENIDO A GREEN GUARDIAN</h1>
-      <p>si me pueden dar ejemplos para poner aqui pls. Algo que sea como una introduccion al proyecto, para que no se vea muy vacio.</p>
+      <p> «La Tierra no la heredamos de nuestros padres, la pedimos prestada de nuestros hijos.» Albert Einstein </p>
     </div>
-    <!-- se crean los contenedores que redireccionan a cada sección -->
 
     <div class="summary-container">
-      
+
       <a href="#tala" class="summary-card">
         <h3>Tala de árboles</h3>
         <p>El impacto que tiene la deforestación</p>
       </a>
-      
+
       <a href="#fauna" class="summary-card">
         <h3>Fauna afectada</h3>
         <p>Animales con perdida de hábitat</p>
       </a>
-      
+
       <a href="#caza" class="summary-card">
         <h3>Caza ilegal</h3>
         <p>Disminución en la biodiversidad</p>
@@ -56,115 +56,175 @@
 
     </div>
   </main>
-  <!--SECCIÓN 1: TALA DE ÁRBOLES-->
+
+  <!-- SECCIÓN 1: TALA DE ÁRBOLES -->
   <main id="tala">
-    <!-- Contenido de texto: título, párrafos y lista -->
-    <div class="texto">
-      <h2>Tala de árboles</h2>
-      <p>
-        La deforestación es uno de los problemas más críticos que amenazan la biodiversidad y la salud de nuestro
-        planeta. La pérdida de bosques pone en peligro la supervivencia de innumerables especies de plantas y
-        animales en todo el mundo.
-      <p>
-        La deforestación es el proceso de tala o raleo de bosques por parte de los seres humanos para liberar la tierra
-        para otros usos.<br> Esto puede implicar la tala de árboles, el desmonte de tierras para la agricultura o la
-        construcción de carreteras y barrios. <br> Es un problema ambiental importante que afecta el equilibrio de los
-        ecosistemas, el clima y la biodiversidad.
-      </p>
-      </p>
+    <section class="contenido-seccion">
+      <div class="texto">
+        <h2>Tala de árboles</h2>
+        <p>
+          La deforestación es uno de los problemas más críticos que amenazan la biodiversidad y la salud de nuestro
+          planeta. La pérdida de bosques pone en peligro la supervivencia de innumerables especies de plantas y
+          animales en todo el mundo.
+        </p>
+        <p>
+          La deforestación es el proceso de tala o raleo de bosques por parte de los seres humanos para liberar la
+          tierra
+          para otros usos. Esto puede implicar la tala de árboles, el desmonte de tierras para la agricultura o la
+          construcción de carreteras y barrios. Es un problema ambiental importante que afecta el equilibrio de los
+          ecosistemas, el clima y la biodiversidad.
+        </p>
+      </div>
 
-      <!-- Subtítulo de soluciones -->
-      <h3>Soluciones</h3>
-      <ul>
-        <li>La tala selectiva elimina únicamente los árboles seleccionados, preservando así la integridad del bosque en
-          su conjunto.<br> Minimiza las perturbaciones y ofrece tiempo para la regeneración natural.</li>
-        <li>La tala rasa, por el contrario, deja zonas enteras sin árboles, lo que causa efectos ecológicos más graves y
-          duraderos .</li>
-      </ul>
-    </div>
+      <!-- Imagen del conejo - Grande y destacada -->
+      <div class="imagen-destacada">
+        <figure>
+          <img src="png/Conejito tote.png" alt="Conejo afectado por la tala">
+        </figure>
+      </div>
 
-    <!-- Imagen asociada a la sección -->
-    <div class="imagen">
-      <img src="png/Conejito tote.png" alt="Conejo afectado">
-      <img src="png/TalaArbol.jpg" alt="Árbol talado" class="TalaArbol" width="350" height="350">
-      <p>
-        Contexto:Este problema afecta la calidad del aire, el clima y la vida silvestre. <br>Por ello, es fundamental
-        crear conciencia y promover la conservación, <br> prácticas sostenibles como la reforestación y el respeto por
-        los ecosistemas naturales.
-      </p>
-    </div>
+      <div class="texto">
+        <h3>Soluciones</h3>
+        <ul>
+          <li><strong>Tala selectiva:</strong> Elimina únicamente los árboles seleccionados, preservando así la
+            integridad del bosque en su conjunto. Minimiza las perturbaciones y ofrece tiempo para la regeneración
+            natural.</li>
+          <li><strong>Evitar la tala rasa:</strong> Por el contrario, la tala rasa deja zonas enteras sin árboles, lo
+            que causa efectos ecológicos más graves y duraderos.</li>
+        </ul>
+      </div>
+
+      <!-- Galería de imágenes -->
+      <div class="galeria-imagenes">
+        <figure>
+          <img src="png/TalaArbol.jpg" alt="Árbol siendo talado" class="TalaArbol">
+        </figure>
+      </div>
+
+      <div class="contexto-box">
+        <h4>Contexto</h4>
+        <p>
+          Este problema afecta la calidad del aire, el clima y la vida silvestre. Por ello, es fundamental
+          crear conciencia y promover la conservación, prácticas sostenibles como la reforestación y el respeto por
+          los ecosistemas naturales.
+        </p>
+      </div>
+    </section>
   </main>
 
-  <!--  SECCIÓN 2: FAUNA AFECTADA  -->
+  <!-- SECCIÓN 2: FAUNA AFECTADA -->
   <main id="fauna">
-    <div class="texto">
-      <h2>Fauna afectada</h2>
-      <p>
-        Uno de los efectos más inmediatos y visibles de la tala en la fauna silvestre es la pérdida de hábitat . <br>Los
-        bosques son increíblemente intrincados, con múltiples capas que ofrecen alimento, refugio y zonas de
-        reproducción para innumerables especies animales. <br>Cuando estos entornos se talan , los animales lo pierden
-        todo, desde los huecos de los árboles, esenciales para anidar, hasta la cubierta protectora vital para su
-        supervivencia.
-        <li>La fauna silvestre en El Salvador constituye una de las mayores riquezas del patrimonio natural del país.
-          Asimismo estos proporcionan beneficios importantes e irremplazables para la vida del ser humano</li>
-      </p>
-      
-      <h3>Soluciones</h3>
-      <ul>
-        <li>Reforestación : Plantar árboles nativos en áreas taladas ayuda a restaurar hábitats perdidos.</li>
-        <li>Forestación : Creación de nuevos bosques donde antes no existían, proporcionando nuevos hábitats para la
-          fauna desplazada.</li>
-        <li>La restauración debe centrarse en las especies nativas; los monocultivos introducidos pueden no satisfacer
-          <br> las necesidades de la vida silvestre.</li>
-      </ul>
-    </div>
+    <section class="contenido-seccion">
+      <div class="texto">
+        <h2>Fauna afectada</h2>
+        <p>
+          Uno de los efectos más inmediatos y visibles de la tala en la fauna silvestre es la pérdida de hábitat. Los
+          bosques son increíblemente intrincados, con múltiples capas que ofrecen alimento, refugio y zonas de
+          reproducción para innumerables especies animales. Cuando estos entornos se talan, los animales lo pierden
+          todo, desde los huecos de los árboles, esenciales para anidar, hasta la cubierta protectora vital para su
+          supervivencia.
+        </p>
+        <p>
+          La fauna silvestre en El Salvador constituye una de las mayores riquezas del patrimonio natural del país.
+          Asimismo estos proporcionan beneficios importantes e irremplazables para la vida del ser humano.
+        </p>
+      </div>
 
-    <div class="imagen">
-      <img src="png/faunaafectada.jpg" alt="Fauna afectada" class="faunaafectada" width="350" height="350">
-      <img src="png/afectadafauna.jpg" alt="afectadafauna" class="afectadafauna" width="350" height="250">
-      <p>
-        Contexto: La tala de árboles destruye los bosques que sirven como hogar, refugio y fuente de alimento para
-        muchas especies animales. <br> Al perder su hábitat, la fauna se ve obligada a desplazarse, <br>lo que provoca
-        desequilibrio ecológico, disminución de poblaciones e incluso la extinción de algunas especies.
-      </p>
-      <img src="png/Conejito triste.png" alt="Animal afectado por tala">
+      <!-- Imagen del conejo - Grande y destacada -->
+      <div class="imagen-destacada">
+        <figure>
+          <img src="png/Conejito triste.png" alt="Conejo afectado por la deforestación">
+        </figure>
+      </div>
 
-    </div>
+      <div class="texto">
+        <h3>Soluciones</h3>
+        <ul>
+          <li><strong>Reforestación:</strong> Plantar árboles nativos en áreas taladas ayuda a restaurar hábitats
+            perdidos.</li>
+          <li><strong>Forestación:</strong> Creación de nuevos bosques donde antes no existían, proporcionando nuevos
+            hábitats para la fauna desplazada.</li>
+          <li>La restauración debe centrarse en las especies nativas; los monocultivos introducidos pueden no satisfacer
+            las necesidades de la vida silvestre.</li>
+        </ul>
+      </div>
+
+      <!-- Galería de imágenes - Lado a lado -->
+      <div class="galeria-imagenes galeria-dos-columnas">
+        <figure>
+          <img src="png/faunaafectada.jpg" alt="Fauna afectada por deforestación" class="faunaafectada">
+        </figure>
+        <figure>
+          <img src="png/afectadafauna.jpg" alt="Impacto en la fauna" class="afectadafauna">
+        </figure>
+      </div>
+
+      <div class="contexto-box">
+        <h4>Contexto</h4>
+        <p>
+          La tala de árboles destruye los bosques que sirven como hogar, refugio y fuente de alimento para
+          muchas especies animales. Al perder su hábitat, la fauna se ve obligada a desplazarse, lo que provoca
+          desequilibrio ecológico, disminución de poblaciones e incluso la extinción de algunas especies.
+        </p>
+      </div>
+    </section>
   </main>
 
-  <!-- SECCIÓN 3: CAZA ILEGAL  -->
+  <!-- SECCIÓN 3: CAZA ILEGAL -->
   <main id="caza">
-    <div class="texto">
-      <h2>Caza ilegal</h2>
-      <p>
-        Durante mucho tiempo, el mundo ha asociado la caída en picada de las poblaciones de vida silvestre con noticias
-        sobre <br>la degradación forestal y con imágenes estremecedoras de tierras deforestadas. <br>Sin embargo,
-        estudios recientes revelan otra práctica humana que estuvo influyendo en la disminución de la cantidad de vida
-        silvestre en estos ecosistemas.
-      </p>
-      <p>
-        Los cazadores y los comerciantes de vida silvestre pueden enviar algunas especies de gran valor, <br>como los
-        pangolines, a ciudades más importantes o exportarlas a mercados extranjeros. Pero la mayoría de los animales
-        capturados va a los mercados locales de vida silvestre o se vende <br>directamente a los restaurantes como carne
-        de animales silvestres.
-      </p>
+    <section class="contenido-seccion">
+      <div class="texto">
+        <h2>Caza ilegal</h2>
+        <p>
+          Durante mucho tiempo, el mundo ha asociado la caída en picada de las poblaciones de vida silvestre con
+          noticias
+          sobre la degradación forestal y con imágenes estremecedoras de tierras deforestadas. Sin embargo,
+          estudios recientes revelan otra práctica humana que estuvo influyendo en la disminución de la cantidad de vida
+          silvestre en estos ecosistemas.
+        </p>
+        <p>
+          Los cazadores y los comerciantes de vida silvestre pueden enviar algunas especies de gran valor, como los
+          pangolines, a ciudades más importantes o exportarlas a mercados extranjeros. Pero la mayoría de los animales
+          capturados va a los mercados locales de vida silvestre o se vende directamente a los restaurantes como carne
+          de animales silvestres.
+        </p>
+      </div>
 
-      <h3>Soluciones</h3>
-      <ul>
-        <li>promover el respeto hacia la vida silvestre y apoyar iniciativas de protección y vigilancia que garanticen
-          la conservación de las especies</li>
-      </ul>
-    </div>
+      <!-- Imagen destacada -->
+      <div class="imagen-destacada">
+        <figure>
+          <img src="png/Caza_ilegal2.png" alt="Animal afectado por caza ilegal">
+        </figure>
+      </div>
 
-    <div class="imagen">
-      <img src="png/Caza_ilegal2.png" alt="Animal afectado por caza ilegal">
-      <img src="png/cazailegal.png" alt="caza ilegal" class="cazailegal" width="350" height="250">
-      <img src="png/ilegalcaza.png" alt="ilegalcaza" class="ilegalcaza" width="350" height="250">
-      <p>Contexto: La caza ilegal es una de las actividades más destructivas para la fauna silvestre y la biodiversidad
-        del planeta. Consiste en capturar,<br> matar o comercializar animales sin autorización o fuera de las
-        regulaciones establecidas por las leyes ambientales. <br>Esta práctica afecta principalmente a especies en
-        peligro de extinción, alterando los ecosistemas y rompiendo el equilibrio natural de la cadena alimenticia.</p>
-    </div>
+      <div class="texto">
+        <h3>Soluciones</h3>
+        <ul>
+          <li><strong>Protección y vigilancia:</strong> Promover el respeto hacia la vida silvestre y apoyar iniciativas
+            de protección y vigilancia que garanticen la conservación de las especies.</li>
+        </ul>
+      </div>
+
+      <!-- Galería de imágenes - Lado a lado -->
+      <div class="galeria-imagenes galeria-dos-columnas">
+        <figure>
+          <img src="png/cazailegal.png" alt="Caza ilegal" class="cazailegal">
+        </figure>
+        <figure>
+          <img src="png/ilegalcaza.png" alt="Impacto de la caza ilegal" class="ilegalcaza">
+        </figure>
+      </div>
+
+      <div class="contexto-box">
+        <h4>Contexto</h4>
+        <p>
+          La caza ilegal es una de las actividades más destructivas para la fauna silvestre y la biodiversidad
+          del planeta. Consiste en capturar, matar o comercializar animales sin autorización o fuera de las
+          regulaciones establecidas por las leyes ambientales. Esta práctica afecta principalmente a especies en
+          peligro de extinción, alterando los ecosistemas y rompiendo el equilibrio natural de la cadena alimenticia.
+        </p>
+      </div>
+    </section>
   </main>
 
   <!-- Aquí se enlaza el archivo JS donde se pueden agregar interacciones -->
