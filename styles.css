@@ -16,13 +16,39 @@ body {
   color: #333;
 }
 
+body {
+  background-image: url('https://images.pexels.com/photos/142497/pexels-photo-142497.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+
+}
+
+/* Capa oscura sobre el fondo */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.493); /* Ajusta el 0.5 para más o menos oscuridad */
+  z-index: -1;
+  pointer-events: none;
+}
+  
 /*estilo para la barra superior que contiene el logo y los enlaces a cada sección*/
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2.5rem;
-  background-color: #ffffff;
+  background-color: #fcf4f4;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   position: sticky;
   /*hace que el header permanezca siempre arriba al hacer scroll*/
@@ -37,7 +63,7 @@ header {
   align-items: center;
   font-size: 1.25rem;
   font-weight: bold;
-  color: #2e7d32;
+  color: #12b91a;
 }
 
 .logo span {
@@ -59,7 +85,7 @@ header {
 nav a {
   margin-left: 1.5rem;
   text-decoration: none;
-  color: #1b5e20;
+  color: #29bf12;
   font-weight: 600;
   font-size: 1.1rem;
   padding-bottom: 5px;
@@ -71,8 +97,8 @@ nav a {
 
 /*diseño para que cuando el cursor pase por encima cambie de color */
 nav a:hover {
-  color: #4caf50;
-  border-bottom-color: #4caf50;
+  color: #000000;
+  border-bottom-color: #070707;
   transform: translateY(-2px);
 }
 
@@ -120,16 +146,16 @@ main#inicio.active {
 
 /*cambia el color del fondo para la seccion que esté 'active'*/
 main#inicio.active {
-  background-color: #d3ffd7;
+  background-color: #ff510000;
 }
 
 main#tala.active,
 main#caza.active {
-  background-color: #a1cba1;
+  background-color: #a1cba100;
 }
 
 main#fauna.active {
-  background-color: #d3ffd7;
+  background-color: #d3ffd700;
 }
 
 /*estilos para la pantalla de inicio, logo en el centro*/
@@ -162,10 +188,10 @@ main#fauna.active {
 .welcome-container h1 {
   font-family: 'Playfair Display', serif;
   font-size: 2.8rem;
-  color: #2e7d32;
+  color: #12b91a;
   margin-bottom: 0.5rem;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 2px 2px 4px rgb(0, 0, 0);
   animation: fadeInDown 1s ease;
 }
 
@@ -183,7 +209,7 @@ main#fauna.active {
 
 .welcome-container p {
   font-size: 1.2rem;
-  color: #555;
+  color: #eee9e9;
   max-width: 600px;
   margin: 0;
   font-style: italic;
@@ -211,13 +237,13 @@ main#fauna.active {
 }
 
 .summary-card {
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  background-color: #03030371;
+  border: 3px solid #47f85f;
+  border-radius: 20px;
   padding: 2rem;
   width: 300px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 4px 12px rgb(176, 226, 38);
   text-decoration: none;
   color: inherit;
   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
@@ -225,6 +251,9 @@ main#fauna.active {
   opacity: 0;
   transform: translateY(50px);
   animation: slideUp 0.6s ease forwards;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .summary-card:nth-child(1) {
@@ -249,12 +278,12 @@ main#fauna.active {
 .summary-card:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-  background-color: #f0f9f0;
+  background-color: #93ff72;
 }
 
 .summary-card h3 {
   font-size: 1.5rem;
-  color: #1b5e20;
+  color: #12b91a;
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-weight: 600;
@@ -265,6 +294,32 @@ main#fauna.active {
   margin-bottom: 0;
 }
 
+/* Estilos para las imágenes en las tarjetas */
+.summary-card-image {
+  width: 100%;
+  height: 180px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.summary-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  animation: floatImage 3s ease-in-out infinite;
+}
+
+.summary-card:hover .summary-card-image img {
+  transform: scale(1.05);
+  animation-play-state: paused;
+}
+
+.summary-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
 
 /*darle la estructura a las paginas con el contenido*/
 /*columnas de texto e imagenes*/
@@ -286,7 +341,7 @@ h2 {
   font-family: 'Montserrat', sans-serif;
   font-size: 2.8rem;
   font-weight: 800;
-  color: #2e7d32;
+  color: #12b91a;
   margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 3px solid #66bb6a;
@@ -309,7 +364,7 @@ h2 {
 
 h3 {
   font-size: 1.8rem;
-  color: #1b5e20;
+  color: #12b91a;
   margin-top: 2rem;
   margin-bottom: 1rem;
   animation: slideInLeft 0.6s ease 0.2s both;
@@ -319,7 +374,7 @@ h3 {
 p {
   font-size: 1.1rem;
   margin-bottom: 1rem;
-  color: #444;
+  color: #f0eaea;
 }
 
 ul {
@@ -362,6 +417,16 @@ ul {
   line-height: 1.5;
 }
 
+/* Animación flotante para TODAS las imágenes */
+@keyframes floatImage {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
 /*ajustes para las imagenes grandes con ANIMACIONES*/
 main:not(#inicio) img {
   max-width: 100%;
@@ -376,13 +441,15 @@ main:not(#inicio) img {
   transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.3s ease;
   cursor: pointer;
   position: relative;
+  animation: floatImage 3s ease-in-out infinite;
 }
 
 /* Efecto hover - zoom y brillo */
 main:not(#inicio) img:hover {
-  transform: scale(1.08) rotate(1deg);
+  transform: scale(1.08) rotate(1deg) translateY(-5px);
   box-shadow: 0 12px 28px rgba(76, 175, 80, 0.3);
   filter: brightness(1.1);
+  animation-play-state: paused;
 }
 
 /* Animación al hacer clic */
@@ -395,7 +462,7 @@ main:not(#inicio) img:active {
 @keyframes imagePulse {
   0% {
     transform: scale(1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(253, 30, 30, 0.15);
   }
 
   50% {
@@ -459,7 +526,7 @@ main:not(#inicio) img:active {
   max-width: 90%;
   max-height: 90%;
   border-radius: 15px;
-  box-shadow: 0 0 50px rgba(76, 175, 80, 0.4);
+  box-shadow: 0 0 50px rgb(39, 252, 11);
   animation: zoomIn 0.4s ease;
 }
 
@@ -492,23 +559,11 @@ main:not(#inicio) img:active {
   }
 }
 
-/*ajuste para los conejitos*/
+/*ajuste para los conejitos con animación flotante*/
 img[alt="Conejo afectado"],
 img[alt="Animal afectado por tala"],
 img[alt="Animal afectado por caza ilegal"] {
-  animation: bounce 2s ease-in-out infinite;
-}
-
-@keyframes bounce {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
+  animation: floatImage 2.5s ease-in-out infinite;
 }
 
 .texto .imagen {
@@ -529,7 +584,7 @@ img[alt="Animal afectado por caza ilegal"] {
   text-align: center;
   margin: 40px auto;
   padding: 30px;
-  background: linear-gradient(135deg, #4aec50 0%, #a6ff8f 100%);
+  background: linear-gradient(135deg, #31ee8683 0%, #4bc92cd3 100%);
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   max-width: 600px;
@@ -545,10 +600,12 @@ img[alt="Animal afectado por caza ilegal"] {
   height: auto;
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  animation: floatImage 3.5s ease-in-out infinite;
 }
 
 .imagen-destacada img:hover {
-  transform: scale(1.05);
+  transform: scale(1.05) translateY(-5px);
+  animation-play-state: paused;
 }
 
 /* Galería de imágenes general */
@@ -578,6 +635,26 @@ img[alt="Animal afectado por caza ilegal"] {
   height: 300px;
   object-fit: cover;
   display: block;
+  animation: floatImage 3.2s ease-in-out infinite;
+}
+
+.galeria-imagenes figure:hover img {
+  animation-play-state: paused;
+}
+
+/* Variaciones de velocidad para hacer más dinámico */
+.galeria-imagenes figure:nth-child(1) img {
+  animation-duration: 3s;
+}
+
+.galeria-imagenes figure:nth-child(2) img {
+  animation-duration: 3.5s;
+  animation-delay: 0.5s;
+}
+
+.galeria-imagenes figure:nth-child(3) img {
+  animation-duration: 3.2s;
+  animation-delay: 1s;
 }
 
 /* Galería de dos columnas - imágenes lado a lado */
@@ -608,15 +685,53 @@ img[alt="Animal afectado por caza ilegal"] {
   object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
+  animation: floatImage 3.3s ease-in-out infinite;
 }
 
 .galeria-dos-columnas figure:hover img {
   transform: scale(1.1);
+  animation-play-state: paused;
+}
+
+/* Galería de tres columnas */
+.galeria-tres-columnas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin: 30px auto;
+  max-width: 1100px;
+}
+
+.galeria-tres-columnas figure {
+  margin: 0;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.galeria-tres-columnas figure:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+}
+
+.galeria-tres-columnas img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+  animation: floatImage 3.4s ease-in-out infinite;
+}
+
+.galeria-tres-columnas figure:hover img {
+  transform: scale(1.1);
+  animation-play-state: paused;
 }
 
 /* Caja de contexto */
 .contexto-box {
-  background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%);
+  background: linear-gradient(135deg, #7bb634e1 0%, #60bb36da 100%);
   padding: 30px;
   border-radius: 15px;
   margin: 30px auto;
@@ -625,7 +740,7 @@ img[alt="Animal afectado por caza ilegal"] {
 }
 
 .contexto-box h4 {
-  color: white;
+  color: rgb(204, 240, 76);
   font-size: 1.6rem;
   margin-top: 0;
   margin-bottom: 15px;
@@ -661,6 +776,10 @@ main#caza .imagen img {
 /* Responsive - en móviles una debajo de otra */
 @media (max-width: 768px) {
   .galeria-dos-columnas {
+    grid-template-columns: 1fr;
+  }
+
+  .galeria-tres-columnas {
     grid-template-columns: 1fr;
   }
 
